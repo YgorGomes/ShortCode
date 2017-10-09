@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<script type="text/javascript">
+/*
+código de js para adicionar e remover elementos HTML
+*/
+		function exibeNome(){
+			var elNome = document.getElementById('txtNome');
+			var strNome = elNome.value;
+			var elDisplay = document.getElementById("display");
+			elDisplay.innerText = strNome;
+			console.log(strNome);
+		}
+		function novoContato(){
+			var elListaContatos = document.getElementById("listaContatos");
+			//<input type="text">
+			var inputContato = document.createElement("input");
+			//<label> Contato :</label>
+			var labelContato = document.createElement("label");
+			//<br />
+			var br = document.createElement("br")
+			//<input type="button">
+			var btnExcluir = document.createElement("input");
+			btnExcluir.setAttribute("type","button");
+			btnExcluir.setAttribute("value", " - ");
+			btnExcluir.onclick = function(){
+				elListaContatos.removeChild(divlinha);
+			}
+			//<div> </div>
+			var divlinha = document.createElement("div");
+			divlinha.appendChild(labelContato);
+			divlinha.appendChild(inputContato);
+			divlinha.appendChild(btnExcluir);
+			divlinha.appendChild(br);
+			elListaContatos.appendChild(divlinha);
+
+			labelContato.innerText = "Contato";
+		}
+	</script>
+</head>
+<body>
+	<div id="display">	 
+	</div>
+
+	<div id="campos">
+		Nome:<input type="text" id="txtNome" >
+		<input type="button" name="" value="+" onclick="novoContato();">
+		<input type="button" value="ok" onclick="exibeNome();">
+		
+		<div id="listaContatos">
+		</div>
+	
+	</div>
+</body>
+</html>
